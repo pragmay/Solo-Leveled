@@ -16,7 +16,7 @@ ceil = math.ceil(rand)
 brainTorture  = [random.random() for i in range(0,random.randint(0,100))]
 print(brainTorture)
 
-#torture time
+#torture timee
 print(stat.mean(brainTorture))
 print(stat.mode(brainTorture))
 print(stat.median(brainTorture))
