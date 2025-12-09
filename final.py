@@ -1,7 +1,9 @@
 # %% [markdown]
-# # 🗡️ SHADOW SOLDIERS SYSTEM - SOLO LEVELING INSPIRED 🗡️
+# #
+# #  🗡️ SHADOW SOLDIERS SYSTEM - SOLO LEVELING INSPIRED 🗡️
 
 # %%
+#importing
 import math, random, statistics as stat
 from math import pi
 from getpass import getpass
@@ -13,9 +15,10 @@ print("🗡️  INITIALIZING SHADOW MILITARY PROTOCOL  🗡️")
 print("="*80)
 
 # %% [markdown]
-# # 📊 DATABASE OF WARRIORS
+# ## 📊 DATABASES
 
 # %%
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # CAPTAIN CREDENTIALS - "The Monarchs"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -172,12 +175,17 @@ weapon_orders = []
 pending_recruits = []
 
 # %% [markdown]
-# # ⚔️ CORE FUNCTIONS
+# ##  ⚔️ CORE FUNCTIONS
+
+# %% [markdown]
+# ### Authentication System
+# 
 
 # %%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # AUTHENTICATION SYSTEM
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 def auth():
     """Shadow Authentication Protocol"""
     brp = 0
@@ -207,6 +215,11 @@ def auth():
             brp += 1
     return False, "break", None
 
+# %% [markdown]
+# ### Operations for soldiers
+# 
+
+# %%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # SOLDIER OPERATIONS
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -241,6 +254,12 @@ def soldier_menu(soldier_name):
             break
         else:
             print("⚠️  Invalid Operation Code!")
+
+# %% [markdown]
+# ### Order Placement
+
+# %%
+
 
 def order_weapons(soldier_name):
     """Place weapon requisition order"""
@@ -281,6 +300,10 @@ def order_weapons(soldier_name):
     except:
         print("❌ Invalid input!")
 
+# %% [markdown]
+# ### Soldier Health Update
+
+# %%
 def update_health_status(soldier_name):
     """Update soldier's health metrics"""
     print("\n" + "═"*60)
@@ -314,6 +337,11 @@ def update_health_status(soldier_name):
         except:
             print("❌ Invalid input!")
 
+# %% [markdown]
+# ### View Tasks
+
+# %%
+
 def view_tasks(soldier_name):
     """View assigned missions"""
     print("\n" + "═"*80)
@@ -333,6 +361,11 @@ def view_tasks(soldier_name):
     if not found:
         print("\n📭 No missions currently assigned.")
 
+# %% [markdown]
+# ### Update tasks
+# 
+
+# %%
 def update_completed_tasks(soldier_name):
     """Mark missions as completed"""
     print("\n" + "═"*80)
@@ -364,6 +397,10 @@ def update_completed_tasks(soldier_name):
     except:
         print("❌ Invalid input!")
 
+# %% [markdown]
+# ### View all soldier details
+
+# %%
 def view_soldier_stats(soldier_name):
     """Display detailed soldier statistics"""
     print("\n" + "═"*80)
@@ -387,6 +424,10 @@ def view_soldier_stats(soldier_name):
         print(f"   Completed: {completed}")
         print(f"   Success Rate: {(completed/total_missions*100) if total_missions > 0 else 0:.1f}%")
 
+# %% [markdown]
+# ## All operations for captains
+
+# %%
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # CAPTAIN OPERATIONS
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -434,6 +475,11 @@ def captain_menu(captain_name):
         else:
             print("⚠️  Invalid Command Code!")
 
+# %% [markdown]
+# ### Inventory System
+
+# %%
+
 def order_inventory():
     """Order supplies for inventory"""
     print("\n" + "═"*80)
@@ -460,6 +506,12 @@ def order_inventory():
             print("❌ Invalid category!")
     except:
         print("❌ Invalid input!")
+
+# %% [markdown]
+# ### Approval system
+# 
+
+# %%
 
 def approve_weapon_orders():
     """Approve pending weapon requisitions"""
@@ -501,6 +553,13 @@ def approve_weapon_orders():
             print("❌ Invalid selection!")
     except:
         print("❌ Invalid input!")
+
+# %% [markdown]
+# ### health system
+
+# %%
+
+
 
 def check_health_status():
     """View all soldiers' health metrics"""
@@ -544,6 +603,12 @@ def check_health_status():
         for soldier, stats in active:
             print(f"   ⚔️  {soldier}: HP {stats[0]}/100, Mana {stats[1]}/100, {stats[2]} Lv.{stats[3]}")
 
+# %% [markdown]
+# ### Task Manager
+
+# %%
+
+
 def add_tasks():
     """Create new mission assignments"""
     print("\n" + "═"*80)
@@ -576,6 +641,12 @@ def add_tasks():
         print(f"   Priority: {priority}")
     except:
         print("❌ Invalid input!")
+
+# %% [markdown]
+# ### New Weapons
+
+# %%
+
 
 def add_weapons():
     """Add new weapons to the armory"""
@@ -616,6 +687,13 @@ def add_weapons():
     except:
         print("❌ Invalid input!")
 
+# %% [markdown]
+# ### Recruits
+# 
+
+# %%
+
+
 def add_recruits():
     """Add new soldiers to the system"""
     print("\n" + "═"*80)
@@ -642,6 +720,12 @@ def add_recruits():
     except:
         print("❌ Invalid input!")
 
+# %% [markdown]
+# ### All ammo
+
+# %%
+
+
 def view_arsenal():
     """Display complete weapons inventory"""
     print("\n" + "═"*80)
@@ -662,6 +746,12 @@ def view_arsenal():
                 elif isinstance(weapons, list):
                     for weapon in weapons:
                         print(f"      • {weapon}")
+
+# %% [markdown]
+# ### All missions
+
+# %%
+
 
 def view_all_missions():
     """Display all mission assignments"""
@@ -685,6 +775,12 @@ def view_all_missions():
             print(f"\n   🎯 {task[0]}: {task[1]}")
             print(f"      Assigned: {task[2]}")
             print(f"      Priority: {task[4]}")
+
+# %% [markdown]
+# ### Everything
+
+# %%
+
 
 def view_system_stats():
     """Display comprehensive system statistics"""
@@ -734,10 +830,13 @@ def view_system_stats():
     for rank, count in sorted(rank_distribution.items(), reverse=True):
         print(f"   {rank}: {count} soldiers {'█' * count}")
 
+
 # %% [markdown]
-# # 🌟 MAIN EXECUTION - THE SYSTEM AWAKENS
+# ## 🌟 MAIN EXECUTION - THE SYSTEM AWAKENS
 
 # %%
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # CORE PROGRAM LOOP
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -778,5 +877,8 @@ def main():
 if __name__ == "__main__":
     main()
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # %%
+
+
 
