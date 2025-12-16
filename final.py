@@ -189,7 +189,7 @@ pending_recruits = []
 def auth():
     """Shadow Authentication Protocol"""
     brp = 0
-    while brp <= 3:
+    while brp in range(3):
         print("\n" + "─"*80)
         print("🔐 IDENTITY VERIFICATION REQUIRED")
         print("─"*80)
