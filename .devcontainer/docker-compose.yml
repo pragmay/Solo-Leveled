@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  app:
+    image: continuumio/miniconda3:latest
+    volumes:
+      - ..:/workspaces/Solo-Leveled:cached
+    command: sleep infinity
+    env_file:
+      - ../.env
+    depends_on:
+      - db
+    networks:
+      - solonet
+
+  db:
+    image: mysql:9.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    networks:
+      - solonet
+
+networks:
+  solonet:
+    driver: bridge
