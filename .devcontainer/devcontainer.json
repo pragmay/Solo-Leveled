@@ -1,0 +1,12 @@
+{
+  "name": "Shadow Army",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/mysql:1": {
+      "version": "8.0",
+      "rootPassword": "James_Bond"
+    }
+  },
+  "postCreateCommand": "pip install mysql-connector-python",
+  "forwardPorts": [3306]
+}
