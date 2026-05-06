@@ -1,6 +1,6 @@
 {
   "name": "Shadow Army",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y mysql-server && sudo service mysql start && sudo mysql -e \"ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'James_Bond'; FLUSH PRIVILEGES;\" && pip install mysql-connector-python",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y mysql-server && sudo service mysql start && sudo mysql -e \"ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'James_Bond'; FLUSH PRIVILEGES;\" && pip install mysql-connector-python ipykernel",
   "forwardPorts": [3306]
 }
